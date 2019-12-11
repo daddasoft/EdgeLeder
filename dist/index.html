@@ -1,0 +1,116 @@
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Edge Ledger</title>
+    <link rel="shortcut icon" href="icons/favicon.ico"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="css/main.css"/>
+  </head>
+  <body>
+    <nav class="navbar">
+      <h1 class="navbar__logo"><i class="fab fa-buffer"></i><span class="navbar__logo__colored">Edge </span>Ledger</h1>
+      <ul class="navbar__list">
+        <li class="navbar__list--item"> <a class="navbar__list--links" href="#">Home</a></li>
+        <li class="navbar__list--item"> <a class="navbar__list--links" href="#wedo">What</a></li>
+        <li class="navbar__list--item"> <a class="navbar__list--links" href="#weare">Who</a></li>
+        <li class="navbar__list--item"> <a class="navbar__list--links" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <header class="header">
+      <div class="heroWrapper">
+        <h2 class="header__title">The Sky Is The Limit</h2>
+        <p class="header__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae voluptatibus debitis praesentium inventore, eum deserunt.</p>
+        <a class="header__button" href="#"> Read More</a>
+      </div>
+    </header>
+    <section class="wedo" id="wedo">
+      <div class="container">
+        <h2 class="wedo__title"> <span>What </span>We Do</h2>
+        <div class="wedo__box">
+          <div class="wedo__box__offers">
+            <div class="wedo__box__offers__icon"><i class="fas fa-university fa-2x"></i></div>
+            <div class="wedo__box__offers__description">
+              <h2>Investment Banking</h2>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, voluptatum!</p>
+            </div>
+          </div>
+          <div class="wedo__box__offers">
+            <div class="wedo__box__offers__icon"><i class="fas fa-book-reader fa-2x"></i></div>
+            <div class="wedo__box__offers__description">
+              <h2>Portfolio Management</h2>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, voluptatum!</p>
+            </div>
+          </div>
+          <div class="wedo__box__offers">
+            <div class="wedo__box__offers__icon"><i class="fas fa-pencil-alt fa-2x"></i></div>
+            <div class="wedo__box__offers__description">
+              <h2>Tax & Custodial</h2>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, voluptatum!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="weare" id="weare">
+      <div class="weare__team"><img class="weare__team--image" src="img/people.jpg"/></div>
+      <div class="weare__description">
+        <h2><span>Who </span>We Are</h2>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora culpa harum voluptas ratione enim consequuntur illo, atque, aut doloribus unde repellendus sit delectus beatae aspernatur placeat corrupti. Ipsa, itaque quas.</p>
+        <h3>Our Team</h3>
+        <ul class="weare__description__list">
+          <li class="weare__description__list--item">Mark Smith: CEO</li>
+          <li class="weare__description__list--item">Shannon Johnson: CFO</li>
+          <li class="weare__description__list--item">John Corbit: Lead Accountant</li>
+          <li class="weare__description__list--item">Janet Williams: Investment Manager</li>
+          <li class="weare__description__list--item">Kara Jackson: Senior Accountant</li>
+        </ul>
+      </div>
+    </section>
+    <section class="ourclients">
+      <h1> <span>Our </span>Clients</h1>
+      <div class="container">
+        <div class="ourclients__box">
+          <div class="ourclients__box__logo"><img src="logos/logo1.png" alt=""/></div>
+          <div class="ourclients__box__logo"><img src="logos/logo2.png" alt=""/></div>
+          <div class="ourclients__box__logo"><img src="logos/logo3.png" alt=""/></div>
+          <div class="ourclients__box__logo"><img src="logos/logo4.png" alt=""/></div>
+          <div class="ourclients__box__logo"><img src="logos/logo5.png" alt=""/></div>
+        </div>
+      </div>
+    </section>
+    <section class="contact">
+      <div class="contact__form">
+        <h1>Contact Us</h1>
+        <p>Please use the form below to contact us</p>
+        <form action="#" method="post" id="contact">
+          <div class="contact__form__group">
+            <label>Name</label>
+            <input type="text" placeholder="Enter Name"/>
+          </div>
+          <div class="contact__form__group">
+            <label>Email</label>
+            <input type="text" placeholder="Enter Email"/>
+          </div>
+          <div class="contact__form__group">
+            <label>Phone Number</label>
+            <input type="text" placeholder="Enter Phone Number"/>
+          </div>
+          <div class="contact__form__group">
+            <label>Message</label>
+            <textarea name="" cols="30" rows="10" placeholder="Enter Message"></textarea>
+          </div>
+          <button type="submit">Send Email</button>
+        </form>
+      </div>
+      <div class="contact__map map"></div>
+    </section>
+    <footer class="footer">
+      <p>Copyright © 2019, EdgeLedger, All Rights Reserved</p>
+    </footer>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoZg2Es_GrQHZf_52j2-xZ3cTfBCR0HII&amp;callback=initMap" async="async" defer="defer"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

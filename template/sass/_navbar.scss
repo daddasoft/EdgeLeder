@@ -1,0 +1,61 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    background: $primaryDark;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 55;
+
+    @media only screen and (max-width: 532px) {
+        flex-direction: column;
+    }
+
+    &__logo {
+        font-size: 2rem;
+        color: $primaryLight3;
+
+        @media only screen and (max-width: 532px) {
+            margin-bottom: 3rem;
+        }
+
+        i {
+            color: $primaryLight;
+            margin-right: .5rem;
+        }
+
+        &__colored {
+            color: $primaryLight;
+        }
+    }
+
+    &__list {
+
+        display: flex;
+
+        &--item {
+            list-style: none;
+        }
+
+        &--links {
+            color: $primaryLight3;
+            text-decoration: none;
+            padding: 1.5rem 2rem;
+            font-size: 1.5rem;
+            border-radius: 10px;
+            transition: background .3s;
+
+            &:hover {
+                background: $primaryLight;
+            }
+
+            @media only screen and (max-width: 332px) {
+                padding: 1.5rem 1rem;
+            }
+        }
+    }
+
+
+}

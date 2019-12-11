@@ -1,0 +1,67 @@
+.header {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: linear-gradient(to left, rgba(0, 0, 0, 0.616), rgba(0, 0, 0, 0.658)), url('../img/showcase.jpg');
+
+
+    &__title {
+        font-size: 6rem;
+        color: $primaryLight3;
+        margin-bottom: 2rem;
+
+        @media only screen and (max-width: 644px) {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+        }
+
+        @media only screen and (max-width: 528px) {
+            font-size: 4rem;
+        }
+
+        @media only screen and (max-width: 428px) {
+            font-size: 3rem;
+        }
+
+        @media only screen and (max-width: 324px) {
+            font-size: 2.5rem;
+        }
+
+        @media only screen and (max-width: 268px) {
+            font-size: 2rem;
+        }
+    }
+
+    &__description {
+        font-size: 2rem;
+        color: $primaryLight3;
+        margin-bottom: 2rem;
+        padding: 2rem;
+
+        @media only screen and (max-width: 558px) {
+            padding: 1rem;
+        }
+
+        @media only screen and (max-width: 428px) {
+            font-size: 1.5rem;
+        }
+    }
+
+    &__button {
+        color: $primaryLight3;
+        font-size: 1.5rem;
+        text-decoration: none;
+        padding: 1rem 2rem;
+        background: $primaryLight;
+        border-radius: 6px;
+        display: inline-block;
+        transition: background .3s;
+
+        &:hover {
+            background: darken($color: $primaryLight, $amount:7);
+        }
+
+    }
+}
