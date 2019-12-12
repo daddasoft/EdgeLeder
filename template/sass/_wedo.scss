@@ -1,84 +1,82 @@
 .wedo {
-    background: $primaryLight2;
-    text-align: center;
-    padding: 3rem;
+  background: $primaryLight2;
+  text-align: center;
+  padding: 3rem;
 
-    &__title {
-        margin-bottom: 2rem;
-        font-size: 3rem;
+  &__title {
+    margin-bottom: 2rem;
+    font-size: 3rem;
 
-        span {
-            color: $primaryLight;
+    span {
+      color: $primaryLight;
+    }
+  }
 
-        }
+  &__box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+    @media only screen and (max-width: 546px) {
+      flex-direction: column;
     }
 
-    &__box {
+    &__offers {
+      flex: 1;
+      display: flex;
+      margin: 2rem;
+
+      @media only screen and (max-width: 1240px) {
+        flex-direction: column;
+      }
+
+      @media only screen and (max-width: 924px) {
+        margin: 0;
+      }
+
+      @media only screen and (max-width: 546px) {
+        margin: 2rem;
+        flex: none;
+      }
+
+      &__icon {
+        padding: 0.5rem;
         display: flex;
-        justify-content: center;
         align-items: center;
+        justify-items: center;
 
-        @media only screen and (max-width: 546px) {
-            flex-direction: column;
+        @media only screen and (max-width: 1240px) {
+          flex-direction: column;
         }
 
-        &__offers {
-            flex: 1;
-            display: flex;
-            margin: 2rem;
-
-            @media only screen and (max-width: 1240px) {
-                flex-direction: column;
-            }
-
-            @media only screen and (max-width: 924px) {
-                margin: 0;
-            }
-
-            @media only screen and (max-width: 546px) {
-                margin: 2rem;
-            }
-
-            &__icon {
-                padding: .5rem;
-                display: flex;
-                align-items: center;
-                justify-items: center;
-
-                @media only screen and (max-width: 1240px) {
-                    flex-direction: column;
-                }
-
-                i {
-                    font-size: 4rem;
-                    background: $primaryLight;
-                    padding: 1rem;
-                    border-radius: 50%;
-                }
-            }
-
-            &__description {
-                padding: .5rem;
-
-                h2 {
-                    font-size: 2rem;
-                    margin-bottom: 2rem;
-
-                    @media only screen and (max-width: 980px) {
-                        font-size: 1.7rem;
-                    }
-
-                    @media only screen and (max-width: 924px) {
-                        margin-bottom: 1rem;
-                    }
-                }
-
-                p {
-                    font-size: 1.5rem;
-                }
-            }
+        i {
+          font-size: 4rem;
+          background: $primaryLight;
+          padding: 1rem;
+          border-radius: 50%;
         }
+      }
+
+      &__description {
+        padding: 0.5rem;
+
+        h2 {
+          font-size: 2rem;
+          margin-bottom: 2rem;
+
+          @media only screen and (max-width: 980px) {
+            font-size: 1.7rem;
+          }
+
+          @media only screen and (max-width: 924px) {
+            margin-bottom: 1rem;
+          }
+        }
+
+        p {
+          font-size: 1.5rem;
+        }
+      }
     }
-
+  }
 }
