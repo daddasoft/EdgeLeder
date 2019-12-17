@@ -1,0 +1,255 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>To Do List | Vanilla JavaScript</title>
+    <style>
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Lexend Deca", sans-serif;
+}
+
+.hide {
+  display: none;
+}
+
+.finished {
+  text-decoration: line-through;
+}
+
+.hideHeight {
+  height: calc(100vh - 100px) !important;
+}
+
+.container {
+  background: #eee;
+  margin: auto;
+  height: 100vh;
+  position: relative;
+}
+
+.header {
+  background: #0d47a1;
+  height: 50px;
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.input__container {
+  margin-bottom: 1px;
+}
+
+.content {
+  overflow: auto;
+  height: calc(100vh - 143px);
+}
+
+.footer {
+  background: #0d47a1;
+  height: 50px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  padding: 10px;
+  color: #fff;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__logo {
+  color: #fff;
+}
+.header__button:link, .header__button:visited {
+  color: #fff;
+  font-size: 40px;
+  text-decoration: none;
+  padding-bottom: 5px;
+}
+
+.input__container input {
+  display: block;
+  height: 100%;
+  width: 100%;
+  border: none;
+  padding: 10px;
+  outline: 0;
+  color: #fff;
+  font-size: 18px;
+  font-family: "Lexend Deca", sans-serif;
+  background: #0091ea;
+}
+
+.content__list {
+  list-style: none;
+}
+.content__list--item {
+  padding: 10px;
+  color: #fff;
+}
+
+.wraper {
+  display: flex;
+}
+.wraper:nth-child(odd) {
+  background: #03a9f4;
+}
+.wraper:nth-child(even) {
+  background: #40c4ff;
+}
+.wraper:hover .remove {
+  width: 40px;
+  color: #fff;
+  font-size: 18px;
+}
+
+.remove {
+  background: #c62828;
+  width: 0px;
+  color: #fff;
+  font-size: 0px;
+  transition: width 0.4s;
+  will-change: width;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+/*# sourceMappingURL=main.css.map */
+
+</style>
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="header__logo">To-do List</h1>
+            <a class="header__button" href="#">+</a>
+        </header>
+        <div class="input__container">
+            <input type="text" id="text" />
+        </div>
+        <div class="content">
+            <ul class="content__list">
+
+            </ul>
+        </div>
+        <div class="footer">
+        </div>
+    </div>
+    <script>
+const inputToggle = document.querySelector('.header__button');
+const text = document.getElementById('text');
+const ul = document.querySelector('.content__list');
+inputToggle.addEventListener('click', function() {
+  document.querySelector('.input__container').classList.toggle('hide');
+  document.querySelector('.content').classList.toggle('hideHeight');
+});
+
+text.addEventListener('keypress', function(e) {
+  if (e.keyCode === 13) {
+    if (!text.value || text.value.length < 3) {
+      alert('Must Be At Least 3 characters');
+    } else {
+      addItem(text.value);
+    }
+  }
+});
+
+function addItem(data) {
+  document.querySelector('.content__list').innerHTML += `
+<div class="wraper">
+            <div class="remove">X</div>
+            <li class="content__list--item">${data}</li>
+          </div>
+`;
+  addToLocale(data);
+
+  text.value = null;
+}
+
+ul.addEventListener('click', e => {
+  if (e.target.classList.contains('remove')) {
+    e.target.parentElement.remove();
+    delFromLocal(e.target.parentElement.children[1].textContent);
+    console.log('Yeah');
+  }
+  if (e.target.classList.contains('content__list--item')) {
+    e.target.classList.toggle('finished');
+    console.log('g');
+  }
+});
+
+function addToLocale(data) {
+  let arr = [];
+  if (localStorage.getItem('todo')) {
+    arr = JSON.parse(localStorage.getItem('todo'));
+    arr.push(data);
+  } else {
+    arr.push(data);
+  }
+  let filter = [...new Set(arr)];
+  localStorage.setItem('todo', JSON.stringify(filter));
+  loadfromlocal();
+  count();
+}
+document.addEventListener('DOMContentLoaded', loadfromlocal);
+function loadfromlocal() {
+  let data = JSON.parse(localStorage.getItem('todo'));
+  document.querySelector('.content__list').innerHTML = null;
+  if (data) {
+    data.forEach(function(todo) {
+      document.querySelector('.content__list').innerHTML += `
+            <div class="wraper">
+                        <div class="remove">X</div>
+                        <li class="content__list--item">${todo}</li>
+                      </div>
+            `;
+    });
+  }
+  count();
+}
+
+function delFromLocal(item) {
+  let arr = JSON.parse(localStorage.getItem('todo'));
+  if (arr) {
+    for (let i = 0; i < arr.length; i++) {
+      if (item === arr[i]) {
+        arr.splice(i, 1);
+        localStorage.setItem('todo', JSON.stringify(arr));
+        break;
+      }
+    }
+  }
+  count();
+}
+
+function count() {
+  let a = JSON.parse(localStorage.getItem('todo'));
+if(a)
+{
+  document.querySelector('.footer').textContent = `There Is ${a.length} Todo`;
+}
+else{
+  document.querySelector('.footer').textContent = `There Is 0 Todo`;
+}
+}
+</script>
+</body>
+
+</html>
